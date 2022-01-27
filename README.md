@@ -186,3 +186,43 @@ https://github.com/zoontek/react-native-permissions
 
 yarn add react-native-permissions
 ```
+
+# formik and yup
+
+```
+https://formik.org/docs/overview
+
+https://www.npmjs.com/package/formik
+
+yarn add formik
+yarn add yup
+
+import * as React from 'react'
+import { Formik, FormikProps } from 'formik'
+
+interface Props {
+  initialValues: any
+  onSubmit: any
+  validationSchema: object
+  children: any
+}
+
+export default function ({
+  initialValues,
+  onSubmit,
+  validationSchema,
+  children,
+}: Props) {
+  return (
+    <Formik
+      enableReinitialize
+      initialValues={initialValues}
+      onSubmit={onSubmit}
+      validationSchema={validationSchema}>
+      {() => <>{children}</>}
+    </Formik>
+  )
+}
+
+
+```

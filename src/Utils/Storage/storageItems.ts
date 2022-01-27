@@ -1,3 +1,3 @@
 export enum storageItems {
-  test = 'test',
+  user = 'user',
 }
