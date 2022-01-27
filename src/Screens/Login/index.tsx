@@ -1,23 +1,22 @@
 import * as React from 'react'
 import { Div } from 'react-native-magnus'
-import { useSelector, useDispatch } from 'react-redux'
 
+import { useAppSelector, useAppDispatch } from '@/Hooks'
 import AuthContainer from '@/Containers/AuthContainer'
 import { Text, Button } from '@/Components'
 import Logger from '@/Utils/Logger'
-import { initUser } from '@/Store/Global'
+import { loginUser } from '@/Store/Global'
 
 export default function () {
-  const state = useSelector((state) => state)
-  const dispatch = useDispatch()
+  const state = useAppSelector((state) => state)
+  const dispatch = useAppDispatch()
 
   const login = () => {
     dispatch(
-      initUser({
+      loginUser({
         email: 'guest@gmail.com',
       }),
     )
-    // Logger.debug('user =', state)
   }
   return (
     <AuthContainer headerProps={{ heading: 'Login' }}>

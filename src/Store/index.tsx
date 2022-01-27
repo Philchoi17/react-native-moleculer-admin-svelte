@@ -4,7 +4,7 @@ import { configureStore } from '@reduxjs/toolkit'
 import thunk from 'redux-thunk'
 import { composeWithDevTools } from 'redux-devtools-extension'
 
-import Global from './Global'
+import GLOBAL from './Global'
 
 interface Props {
   children: JSX.Element
@@ -15,7 +15,7 @@ const middlewares = [
 ]
 
 const reducer: any = {
-  Global,
+  GLOBAL,
   // firebase: firebaseReducer,
   // firestore: firestoreReducer,
   // [api.reducerPath]: api.reducer,
@@ -40,6 +40,11 @@ const store = configureStore({
   // ],
   enhancers: [],
 })
+
+// Infer the `RootState` and `AppDispatch` types from the store itself
+export type RootState = ReturnType<typeof store.getState>
+// Inferred type: {posts: PostsState, comments: CommentsState, users: UsersState}
+export type AppDispatch = typeof store.dispatch
 
 export default function ({ children }: Props) {
   return <Provider store={store}>{children}</Provider>

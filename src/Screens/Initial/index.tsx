@@ -2,16 +2,18 @@ import * as React from 'react'
 import { Div } from 'react-native-magnus'
 import { useNavigation } from '@react-navigation/core'
 
+import { AuthScreenProps } from '@/Navigators/NavStackParams'
+import { AuthRoutes } from '../SCREENS'
 import AuthContainer from '@/Containers/AuthContainer'
 import { Text, Button } from '@/Components'
 
 export default function () {
-  const navigation: any = useNavigation()
+  const navigation = useNavigation<AuthScreenProps>()
   const goLogin = () => {
-    navigation.navigate('login')
+    navigation.navigate(AuthRoutes.LOGIN_SCREEN)
   }
   const goSignup = () => {
-    navigation.navigate('signup')
+    navigation.navigate(AuthRoutes.SIGNUP_SCREEN)
   }
   return (
     <AuthContainer>

@@ -2,12 +2,13 @@ import * as React from 'react'
 import { Div } from 'react-native-magnus'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
 
-// import Config from '@/Config'
+import Config from '@/Config'
 import { Header } from '@/Components'
 
 interface HeaderProps {
-  heading: string
+  heading?: string
   suffix?: JSX.Element
+  headerRest?: any
 }
 
 interface Props {
@@ -15,14 +16,15 @@ interface Props {
   headerProps?: HeaderProps
 }
 
-export default function ({ children, headerProps }: Props) {
+export default function MainContainer({ children, headerProps }: Props) {
   const { top, bottom } = useSafeAreaInsets()
   return (
-    <Div bg="light" flex={1} pb={bottom} pt={top}>
+    <Div bg="light" flex={1} pt={top} pb={bottom}>
       {headerProps && (
         <Header
           bottomLine
-          suffix={headerProps.suffix ? headerProps.suffix : null}>
+          suffix={headerProps.suffix ? headerProps.suffix : null}
+          {...headerProps.headerRest}>
           {headerProps.heading}
         </Header>
       )}
