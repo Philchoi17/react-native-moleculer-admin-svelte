@@ -15,3 +15,9 @@ export enum ChatRoutes {
   CHAT_REQUEST_SCREEN = 'chat-request-screen',
   CHAT_SEARCH_SCREEN = 'chat-search-screen',
 }
+
+export enum QuizRoutes {
+  QUIZ_CHOOSE_SCREEN = 'quiz-choose-screen',
+  QUIZ_QUESTION_SCREEN = 'quiz-question-screen',
+  QUIZ_RESULT_SCREEN = 'quiz-result-screen',
+}
