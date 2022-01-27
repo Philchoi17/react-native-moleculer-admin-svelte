@@ -15,6 +15,7 @@ const { useState, useEffect } = React
 export default function () {
   const state = useAppState()
   const dispatch = useAppDispatch()
+
   const [initializing, setInitializing] = useState<boolean>(false)
 
   const checkIfUser = async () => {
@@ -42,20 +43,15 @@ export default function () {
   useEffect(mainNavigatorUseEffectHandler, [state])
 
   const { user } = useAppSelector(({ GLOBAL }) => GLOBAL)
-  const drawerRef = React.createRef<DrawerRef>()
+  // const drawerRef = React.createRef<DrawerRef>()
   if (initializing) {
     return <Loading />
   }
   return (
     <Host>
-      <Drawer ref={drawerRef}>
-        <Text>Hello World</Text>
-      </Drawer>
       <NavigationContainer>
         {user ? <MainTabs /> : <AuthStack />}
-        {/* <MainTabs /> */}
       </NavigationContainer>
-      {user && <DrawerController drawerRef={drawerRef} />}
     </Host>
   )
 }

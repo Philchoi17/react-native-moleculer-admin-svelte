@@ -12,3 +12,4 @@ export { default as SignupScreen } from './Signup'
 
 // Main App Screens
 export { default as HomeScreen } from './Home'
+export { default as ProfileScreen } from './Profile'

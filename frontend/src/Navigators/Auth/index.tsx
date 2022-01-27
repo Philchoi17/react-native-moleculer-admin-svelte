@@ -4,7 +4,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import { AuthRoutes } from '@/Screens/SCREENS'
 import { InitialScreen, LoginScreen, SignupScreen } from '@/Screens'
 
-const { Navigator, Screen } = createNativeStackNavigator()
+const { Navigator, Screen, Group } = createNativeStackNavigator()
 
 export default function () {
   return (

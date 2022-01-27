@@ -1,16 +1,17 @@
 import * as React from 'react'
-import { Div, Drawer, Fab, DrawerRef, Host } from 'react-native-magnus'
+import { Div, Fab } from 'react-native-magnus'
 
 import { Text, Icon, Button } from '@/Components'
 
 interface Props {
   drawerRef: any // temp
+  navigateToProfile: () => void
 }
 
-export default function ({ drawerRef }: Props) {
+export default function ({ drawerRef, navigateToProfile }: Props) {
   return (
     <>
-      <Fab bg="blue600" h={50} w={50} bottom={85}>
+      <Fab bg="blue600" h={50} w={50}>
         <Button
           p="none"
           bg="transparent"
@@ -38,7 +39,7 @@ export default function ({ drawerRef }: Props) {
           p="none"
           bg="transparent"
           justifyContent="flex-end"
-          onPress={() => {}}>
+          onPress={navigateToProfile}>
           <Div rounded="sm" bg="white" p="sm">
             <Text fontSize="md">Profile</Text>
           </Div>
