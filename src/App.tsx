@@ -24,6 +24,9 @@ export default function () {
     } catch (error) {
       Logger.err('mainUseEffectHandler: error =', error)
     }
+    return () => {
+      // cleanup
+    }
   }
   useEffect(mainUseEffectHandler, [state])
   return (

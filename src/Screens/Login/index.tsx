@@ -10,21 +10,35 @@ import Logger from '@/Utils/Logger'
 import { setUser } from '@/Store/Global'
 import { validationSchema } from './validation'
 import Config from '@/Config'
+import AuthService from '@/Services/Auth'
+// import { useLazyLoginQuery } from '@/Services/api'
 
 const { useState, useEffect } = React
 export default function () {
   // const state = useAppSelector((state) => state)
+  const [loggingIn, setLogginIn] = useState<boolean>(false)
+
   const dispatch = useAppDispatch()
 
-  const login = () => {
-    dispatch(
-      setUser({
-        email: 'guest@gmail.com',
-      }),
-    )
-    Config.setUser({
-      email: 'guest@gmail.com',
-    })
+  useEffect(() => {
+    return () => {
+      // cleanup
+    }
+  }, [])
+
+  // const loginAttempt = useLazyLoginQuery()
+  const login = async (loginCreds: { email: string; password: string }) => {
+    try {
+      const { email, password } = loginCreds
+      const attempt = await AuthService.loginAttempt(email, password)
+      Logger.debug('attempt:', attempt)
+      if (!attempt) throw 'something went wrong ...'
+      dispatch(setUser(attempt))
+      Config.setUser(attempt)
+    } catch (error) {
+      Logger.err('login: error =', error)
+      return false
+    }
   }
 
   return (

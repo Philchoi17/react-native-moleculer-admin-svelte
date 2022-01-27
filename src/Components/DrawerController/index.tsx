@@ -10,7 +10,7 @@ interface Props {
 export default function ({ drawerRef }: Props) {
   return (
     <>
-      <Fab bg="blue600" h={50} w={50} bottom={80}>
+      <Fab bg="blue600" h={50} w={50} bottom={85}>
         <Button
           p="none"
           bg="transparent"

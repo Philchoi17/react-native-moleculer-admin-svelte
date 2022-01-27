@@ -34,6 +34,9 @@ export default function () {
       // TODO: temp until better solution is found
       setTimeout(() => setInitializing(false), 100)
     }
+    return () => {
+      // cleanup
+    }
   }
 
   useEffect(mainNavigatorUseEffectHandler, [state])

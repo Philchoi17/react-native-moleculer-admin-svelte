@@ -3,6 +3,8 @@ import { Provider } from 'react-redux'
 import { configureStore } from '@reduxjs/toolkit'
 import thunk from 'redux-thunk'
 import { composeWithDevTools } from 'redux-devtools-extension'
+import { api } from '@/Services/api'
+import { pokemonApi } from '@/Services/pokemon'
 
 import GLOBAL from './Global'
 
@@ -14,8 +16,12 @@ const middlewares = [
   /*logger*/
 ]
 
+const preloadedState = {}
+
 const reducer: any = {
   GLOBAL,
+  [api.reducerPath]: api.reducer,
+  [pokemonApi.reducerPath]: pokemonApi.reducer,
   // firebase: firebaseReducer,
   // firestore: firestoreReducer,
   // [api.reducerPath]: api.reducer,
@@ -30,14 +36,15 @@ const reducer: any = {
 
 const store = configureStore({
   reducer,
-  // preloadedState,
-  // middleware: (getDefaultMiddleware: any) => [
-  //   ...getDefaultMiddleware({
-  //     serializableCheck: false,
-  //   }),
-  //   ...middlewares,
-  //   api.middleware,
-  // ],
+  preloadedState,
+  middleware: (getDefaultMiddleware: any) => [
+    ...getDefaultMiddleware({
+      serializableCheck: false,
+    }),
+    // ...middlewares,
+    api.middleware,
+    pokemonApi.middleware,
+  ],
   enhancers: [],
 })
 

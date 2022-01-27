@@ -1,13 +1,19 @@
+import { userType } from '@/Types'
 import Logger from '@/Utils/Logger'
 import Storage from '@/Utils/Storage'
 import { storageItems } from '@/Utils/Storage/storageItems'
+import appConfig from './appConfig.json'
 
 class Config {
-  constructor() {}
+  BASE_URL: string
+  constructor() {
+    const { BASE_URL } = appConfig
+    this.BASE_URL = BASE_URL
+  }
 
   init() {}
 
-  async reset() {
+  async reset(): Promise<boolean> {
     try {
       return await Storage.removeAll()
     } catch (error) {
@@ -16,19 +22,24 @@ class Config {
     }
   }
 
-  async setUser(user: any) {
+  async setUser(user: userType): Promise<boolean> {
     Logger.debug('user =', user)
     return await Storage.set(storageItems.user, user)
   }
 
-  async getUser() {
+  async getUser(): Promise<userType | boolean> {
     try {
       const user = await Storage.get(storageItems.user)
-      return user
+      if (!user) throw 'no user'
+      return JSON.parse(user)
     } catch (error) {
-      Logger.err('Config: getUser: error =', error)
+      Logger.info('Config: getUser: error =', error)
       return false
     }
+  }
+
+  getBaseURL() {
+    return this.BASE_URL
   }
 }
 

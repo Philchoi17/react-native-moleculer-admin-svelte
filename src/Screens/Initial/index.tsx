@@ -6,8 +6,14 @@ import { AuthScreenProps } from '@/Navigators/NavStackParams'
 import { AuthRoutes } from '../SCREENS'
 import AuthContainer from '@/Containers/AuthContainer'
 import { Text, Button } from '@/Components'
+import Logger from '@/Utils/Logger'
+
+// test
+// import { useGetPokemonByNameQuery } from '@/Services/pokemon'
 
 export default function () {
+  // const getPokemon = useGetPokemonByNameQuery
+  // Logger.debug('getPokemon =', getPokemon)
   const navigation = useNavigation<AuthScreenProps>()
   const goLogin = () => {
     navigation.navigate(AuthRoutes.LOGIN_SCREEN)

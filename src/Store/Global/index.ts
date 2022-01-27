@@ -1,7 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit'
 
+import { userType } from '@/Types'
+
 interface GlobalState {
-  user: any // temp
+  user: userType | null // temp
 }
 
 const initialState: GlobalState = {
