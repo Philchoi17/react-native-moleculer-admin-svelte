@@ -6,10 +6,10 @@ import Text from '../Text'
 interface Props extends ButtonProps {
   onPress: () => void
   children?: any
-  wide?: boolean
+  // wide?: boolean
 }
 
-export default function ({ onPress, children, wide = false, ...rest }: Props) {
+export default function ({ onPress, children, ...rest }: Props) {
   return (
     <Button onPress={onPress} {...rest}>
       {children}
