@@ -7,6 +7,15 @@ class Config {
 
   init() {}
 
+  async reset() {
+    try {
+      return await Storage.removeAll()
+    } catch (error) {
+      Logger.err('Config: reset: error =', error)
+      return false
+    }
+  }
+
   async setUser(user: any) {
     Logger.debug('user =', user)
     return await Storage.set(storageItems.user, user)

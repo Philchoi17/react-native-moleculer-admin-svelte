@@ -7,8 +7,9 @@ import AuthContainer from '@/Containers/AuthContainer'
 import { Text, Button, KeyboardAvoider, Icon } from '@/Components'
 import { Form, Input, Submit } from '@/Components/Forms/'
 import Logger from '@/Utils/Logger'
-import { loginUser } from '@/Store/Global'
+import { setUser } from '@/Store/Global'
 import { validationSchema } from './validation'
+import Config from '@/Config'
 
 const { useState, useEffect } = React
 export default function () {
@@ -17,10 +18,13 @@ export default function () {
 
   const login = () => {
     dispatch(
-      loginUser({
+      setUser({
         email: 'guest@gmail.com',
       }),
     )
+    Config.setUser({
+      email: 'guest@gmail.com',
+    })
   }
 
   return (

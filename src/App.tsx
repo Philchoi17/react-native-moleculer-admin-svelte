@@ -4,6 +4,7 @@ import { ThemeProvider } from 'react-native-magnus'
 import { useAppState } from '@react-native-community/hooks'
 import { checkAndRequest } from './Utils/Permissions'
 
+import Config from '@/Config'
 import Theme from '@/Theme'
 import Provider from '@/Store'
 import Navigator from '@/Navigators'
@@ -12,6 +13,7 @@ import Logger from '@/Utils/Logger'
 const { useEffect } = React
 export default function () {
   const state = useAppState()
+
   const mainUseEffectHandler = () => {
     try {
       Logger.debug('mainUseEffectHandler', state)

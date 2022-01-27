@@ -12,7 +12,7 @@ export const GlobalSlice = createSlice({
   name: 'global',
   initialState,
   reducers: {
-    loginUser: (state, action) => {
+    setUser: (state, action) => {
       state.user = action.payload
     },
     logoutUser: (state) => {
@@ -22,6 +22,6 @@ export const GlobalSlice = createSlice({
 })
 
 // Action creators are generated for each case reducer function
-export const { loginUser, logoutUser } = GlobalSlice.actions
+export const { setUser, logoutUser } = GlobalSlice.actions
 
 export default GlobalSlice.reducer
