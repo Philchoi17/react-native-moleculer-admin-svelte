@@ -1,16 +1,35 @@
 import * as React from 'react'
-import { View, Text, StyleSheet } from 'react-native'
-import { Div, Icon } from 'react-native-magnus'
+import { Platform, StatusBar, AppState, AppStateStatus } from 'react-native'
+import { ThemeProvider } from 'react-native-magnus'
+import { useAppState } from '@react-native-community/hooks'
+import { checkAndRequest } from './Utils/Permissions'
 
+import Theme from '@/Theme'
+import Provider from '@/Store'
+import Navigator from '@/Navigators'
+import Logger from '@/Utils/Logger'
+
+const { useEffect } = React
 export default function () {
+  const state = useAppState()
+  const mainUseEffectHandler = () => {
+    try {
+      Logger.debug('mainUseEffectHandler', state)
+      const appPermissionListener = async (status: AppStateStatus) => {
+        Logger.debug('appPermissionListener: status =', status)
+      }
+      Logger.debug('appPermissionListener =', appPermissionListener)
+    } catch (error) {
+      Logger.err('mainUseEffectHandler: error =', error)
+    }
+  }
+  useEffect(mainUseEffectHandler, [state])
   return (
-    <Div flex={1} alignItems="center" justifyContent="center">
-      <Icon
-        fontFamily="MaterialCommunityIcons"
-        name="close"
-        color="black"
-        fontSize="3xl"
-      />
-    </Div>
+    <Provider>
+      <ThemeProvider theme={Theme.default}>
+        <StatusBar barStyle="dark-content" />
+        <Navigator />
+      </ThemeProvider>
+    </Provider>
   )
 }
