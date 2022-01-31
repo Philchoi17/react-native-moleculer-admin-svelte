@@ -8,7 +8,7 @@ interface Props {
   navigateToProfile: () => void
 }
 
-export default function ({ drawerRef, navigateToProfile }: Props) {
+export default function ({ drawerRef, navigateToProfile }: Props): JSX.Element {
   return (
     <>
       <Fab bg="blue600" h={50} w={50}>

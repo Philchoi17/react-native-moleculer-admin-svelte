@@ -6,13 +6,20 @@ import appConfig from './appConfig.json'
 
 class Config {
   BASE_URL: string
+  LANGUAGE: string
+
   constructor() {
-    const { BASE_URL } = appConfig
+    const { BASE_URL, LANGUAGE } = appConfig
     this.BASE_URL = BASE_URL
+    this.LANGUAGE = LANGUAGE
   }
 
   init() {}
 
+  /**
+   *
+   * @returns removes all keys in async storage
+   */
   async reset(): Promise<boolean> {
     try {
       return await Storage.removeAll()
@@ -22,11 +29,20 @@ class Config {
     }
   }
 
+  /**
+   *
+   * @param user
+   * @returns
+   */
   async setUser(user: userType): Promise<boolean> {
     Logger.debug('user =', user)
     return await Storage.set(storageItems.user, user)
   }
 
+  /**
+   *
+   * @returns
+   */
   async getUser(): Promise<userType | boolean> {
     try {
       const user = await Storage.get(storageItems.user)

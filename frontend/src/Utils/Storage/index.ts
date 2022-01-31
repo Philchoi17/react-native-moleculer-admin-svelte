@@ -30,6 +30,10 @@ class Storage {
       Logger.warn('Utils: asyncStorage: Storage: get: error =', error)
     }
   }
+  /**
+   *
+   * @returns all keys in async storage
+   */
   async getAll() {
     try {
       const getAllKeys = await AsyncStorage.getAllKeys()
@@ -44,6 +48,10 @@ class Storage {
       Logger.warn('Utils: asyncStorage: Storage: set: getAll =', error)
     }
   }
+  /**
+   *
+   * @returns remove all keys in async storage
+   */
   async removeAll() {
     try {
       const getAllKeys = await AsyncStorage.getAllKeys()

@@ -20,6 +20,7 @@ const tabOptions = (
 export default function () {
   return (
     <Navigator
+      initialRouteName={Stacks.HOME_STACK}
       screenOptions={{
         headerShown: false,
         tabBarShowLabel: false,

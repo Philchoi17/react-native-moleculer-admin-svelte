@@ -1,11 +1,11 @@
 import * as React from 'react'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
-import { Drawer, DrawerRef } from 'react-native-magnus'
+import { DrawerRef } from 'react-native-magnus'
 import { useNavigation } from '@react-navigation/native'
 
 import { HomeScreen, ProfileScreen } from '@/Screens'
 import { HomeRoutes } from '@/Screens/SCREENS'
-import { DrawerController, Text } from '@/Components'
+import { DrawerController, Text, Drawer } from '@/Components'
 import { HomeScreenProps } from '../NavStackParams'
 
 const { Navigator, Group, Screen } = createNativeStackNavigator()
@@ -18,9 +18,7 @@ export default function () {
   }
   return (
     <>
-      <Drawer ref={drawerRef}>
-        <Text>Hello World</Text>
-      </Drawer>
+      <Drawer drawerRef={drawerRef} drawerItems={[]} />
       <Navigator screenOptions={{ headerShown: false }}>
         <Group>
           <Screen component={HomeScreen} name={HomeRoutes.HOME_SCREEN} />
