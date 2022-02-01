@@ -22,11 +22,11 @@ const baseQueryWithInterceptor = async (
 export const api = createApi({
   baseQuery: baseQueryWithInterceptor,
   endpoints: (builder: any) => ({
-    login: builder.query({
-      query: (email: string, password: string) => ({
-        url: '/users/login-user',
-        body: { email, password },
-        method: 'POST',
+    getFeed: builder.query({
+      query: () => ({
+        url: `/feed/get-feed`,
+        // body: { email, password },
+        method: 'GET',
         // headers: baseHeader,
       }),
       // bodyUsed: true,
@@ -34,4 +34,4 @@ export const api = createApi({
   }),
 })
 
-export const { useLazyLoginQuery } = api
+export const { useGetFeedQuery } = api

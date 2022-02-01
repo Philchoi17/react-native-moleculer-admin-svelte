@@ -3,18 +3,20 @@ import { Div } from 'react-native-magnus'
 
 import MainContainer from '@/Containers/MainContainer'
 import { Text } from '@/Components'
+import { FeedTile } from '@/Components/Tiles'
 
-export default function () {
+export default function ({}) {
   return (
     <MainContainer
       headerProps={{
-        heading: 'Quiz Screens TEMP',
+        heading: 'Practice',
         headerRest: {
           prefix: null,
         },
       }}>
-      <Div p="sm">
-        <Text>Quiz Screen</Text>
+      <Div flex={1} p="md">
+        <Text>Practice</Text>
+        <FeedTile />
       </Div>
     </MainContainer>
   )

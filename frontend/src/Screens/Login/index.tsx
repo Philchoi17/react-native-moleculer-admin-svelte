@@ -4,7 +4,7 @@ import { useNavigation } from '@react-navigation/native'
 
 import { useAppSelector, useAppDispatch } from '@/Hooks'
 import AuthContainer from '@/Containers/AuthContainer'
-import { Text, Button, KeyboardAvoider, Icon } from '@/Components'
+import { Text, Button, KeyboardAvoider, Icon, Alert } from '@/Components'
 import { Form, Input, Submit } from '@/Components/Forms/'
 import Logger from '@/Utils/Logger'
 import { setUser } from '@/Store/Global'
@@ -16,7 +16,7 @@ import AuthService from '@/Services/Auth'
 const { useState, useEffect } = React
 export default function () {
   // const state = useAppSelector((state) => state)
-  const [loggingIn, setLogginIn] = useState<boolean>(false)
+  const [loggingIn, setLoggingIn] = useState<boolean>(false)
 
   const dispatch = useAppDispatch()
 
