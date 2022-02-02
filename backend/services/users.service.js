@@ -51,15 +51,12 @@ module.exports = {
 				try {
 					const { user } = ctx.params
 					const exists = await this.checkIfExists(user.email)
-					if (exists) 'email already exists ...'
+					if (exists) throw 'User already exists'
 					const format = await this.userFormat(user)
-					if (!format) throw 'something went wrong ...'
 					const insert = await this.insertUser(format)
-					if (!insert) throw 'something went wrong ...'
 					return insert
 				} catch (error) {
 					this.logger.error('createUser: error =', error)
-
 					throw new MoleculerClientError(error)
 				}
 			},
@@ -80,6 +77,64 @@ module.exports = {
 					this.logger.error('loginUser: error =', error)
 					throw new MoleculerClientError(error)
 				}
+			},
+		},
+		updateUser: {
+			rest: 'POST /update-user',
+			params: {
+				userId: { type: 'string', required: true },
+				updateKey: { type: 'string', required: true },
+				updateValue: { type: 'string', required: true },
+			},
+			async handler(ctx) {
+				try {
+					const { userId, updateKey, updateValue } = ctx.params
+					const exists = await this.adapter.findById(userId)
+					if (!exists) throw 'User does not exist'
+					const update = await this.updateUserKeyValue(
+						userId,
+						updateKey,
+						updateValue,
+					)
+					return update
+				} catch (error) {
+					this.logger.error('updateUser: error =', error)
+					throw new MoleculerClientError(error)
+				}
+			},
+		},
+		deleteUser: {
+			rest: 'POST /delete-user',
+			params: {
+				userId: { type: 'string', required: true },
+			},
+			async handler(ctx) {
+				return true
+			},
+		},
+		decodeToken: {
+			params: {
+				token: { type: 'string', required: true },
+			},
+			async handler(ctx) {
+				try {
+					const { token } = ctx.params
+					const decoded = jwt.verify(token, process.env.TOKEN_SECRET)
+					return decoded
+				} catch (error) {
+					this.logger.error('resolveToken: error =', error)
+					throw new MoleculerClientError(error)
+				}
+			},
+		},
+		generateToken: {
+			params: {
+				user: { type: 'object', required: true },
+			},
+			async handler(ctx) {
+				const { user } = ctx.params
+				const token = await this.generateJWT(user)
+				return token
 			},
 		},
 	},
@@ -136,6 +191,39 @@ module.exports = {
 				return userToFind
 			} catch (error) {
 				this.logger.error('findUser: error =', error)
+				return false
+			}
+		},
+		async updateUserKeyValue(userId, updateKey, updateValue) {
+			try {
+				const update = {
+					$set: {
+						[updateKey]: updateValue,
+						updatedAt: new Date(),
+					},
+				}
+				const updated = await this.adapter.updateById(userId, update)
+				return updated
+			} catch (error) {
+				this.logger.error('updateUserKeyValue: error =', error)
+				return false
+			}
+		},
+		async generateJWT(user) {
+			try {
+				const token = jwt.sign(
+					{
+						...user,
+						// exp: Math.floor(Date.now() / 1000) * 3600 * 60 * 60 * 365,
+					},
+					process.env.TOKEN_SECRET,
+					{
+						expiresIn: '1d', //  1000, "2 days", "10h", "7d"
+					},
+				)
+				return token
+			} catch (error) {
+				this.logger.error('generateJWT: error =', error)
 				return false
 			}
 		},

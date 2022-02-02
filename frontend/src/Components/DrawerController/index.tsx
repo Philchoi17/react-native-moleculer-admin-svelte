@@ -1,10 +1,10 @@
 import * as React from 'react'
-import { Div, Fab } from 'react-native-magnus'
+import { Div, DrawerRef, Fab } from 'react-native-magnus'
 
 import { Text, Icon, Button } from '@/Components'
 
 interface Props {
-  drawerRef: any // temp
+  drawerRef: React.RefObject<DrawerRef>
   navigateToProfile: () => void
 }
 

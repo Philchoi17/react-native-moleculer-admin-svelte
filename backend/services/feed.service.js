@@ -40,11 +40,11 @@ module.exports = {
 		getFeed: {
 			rest: 'GET /get-feed',
 			params: {
-				options: { type: 'string', optional: true },
+				filterOption: { type: 'string', optional: true },
 			},
 			async handler(ctx) {
 				try {
-					const { options = 'recent' } = ctx.params
+					const { filterOption = 'recent' } = ctx.params
 					const recent = await this.getRecent()
 					return recent
 				} catch (error) {

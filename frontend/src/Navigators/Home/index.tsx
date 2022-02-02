@@ -10,9 +10,10 @@ import { HomeScreenProps } from '../NavStackParams'
 
 const { Navigator, Group, Screen } = createNativeStackNavigator()
 
+const { createRef } = React
 export default function () {
   const navigation = useNavigation<HomeScreenProps>()
-  const drawerRef = React.createRef<DrawerRef>()
+  const drawerRef = createRef<DrawerRef>()
   const navigateToProfile = () => {
     navigation.navigate(HomeRoutes.PROFILE_SCREEN)
   }

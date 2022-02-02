@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { TouchableOpacity } from 'react-native'
-import { Dropdown, Div, Button } from 'react-native-magnus'
+import { Dropdown, Div, Button, DropdownRef } from 'react-native-magnus'
 
 import Text from '../Text'
 
@@ -22,9 +22,9 @@ export default function GDActionSheetOpener({
   dropdownTitle,
   dropdownOptions,
 }: Props) {
-  const dropdownRef: any = createRef()
-  const open = () => dropdownRef.current.open()
-  const close = () => dropdownRef.current.close()
+  const dropdownRef = createRef<DropdownRef>()
+  const open = () => dropdownRef?.current?.open()
+  const close = () => dropdownRef?.current?.close()
 
   return (
     <>

@@ -62,7 +62,7 @@ services:
       ME_CONFIG_BASICAUTH_USERNAME: user
       ME_CONFIG_BASICAUTH_PASSWORD: password
     ports:
-      - 8085:8085
+      - 8081:8081
 
   nats:
     image: nats:alpine3.14
