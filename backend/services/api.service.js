@@ -1,6 +1,7 @@
 'use strict'
 
 const ApiGateway = require('moleculer-web')
+const SocketIOService = require('moleculer-io')
 
 /**
  * @typedef {import('moleculer').Context} Context Moleculer's Context
@@ -10,7 +11,7 @@ const ApiGateway = require('moleculer-web')
 
 module.exports = {
 	name: 'api',
-	mixins: [ApiGateway],
+	mixins: [ApiGateway, SocketIOService],
 
 	// More info about settings: https://moleculer.services/docs/0.14/moleculer-web.html
 	settings: {

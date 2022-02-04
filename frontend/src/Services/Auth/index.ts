@@ -1,9 +1,7 @@
 import Logger from '@/Utils/Logger'
 import Config from '@/Config'
 import { USERS_EP } from '../ENDPOINTS'
-import { userType } from '@/Types'
-
-interface UserPayload {}
+import { userType, userPayloadType } from '@/Types'
 
 class Auth {
   /**
@@ -24,12 +22,22 @@ class Auth {
       const { data } = user
       return data
     } catch (error) {
-      Logger.err('loginAttempt: error =', error)
+      Logger.error('loginAttempt: error =', error)
       return false
     }
   }
-  async signupAttempt(userPayload: UserPayload): Promise<boolean> {
-    return true
+  /**\
+   * @definition register user
+   * @param userPayload
+   */
+  async signupAttempt(userPayload: userPayloadType): Promise<boolean> {
+    try {
+      await USERS_EP.post('/create-user', { user: userPayload })
+      return true
+    } catch (error) {
+      Logger.error('signupAttempt: error =', error)
+      return false
+    }
   }
 }
 

@@ -8,7 +8,7 @@ class Logger {
   info(...msg: any) {
     console.info('INFO:', ...msg)
   }
-  err(...msg: any) {
+  error(...msg: any) {
     console.error('ERR:', ...msg)
   }
 }

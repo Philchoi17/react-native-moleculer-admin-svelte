@@ -18,7 +18,14 @@ export default function ({
   ...rest
 }: Props): JSX.Element {
   return (
-    <Button block color="white" p="none" m="lg" onPress={() => {}} {...rest}>
+    <Button
+      bg="gray"
+      block
+      color="white"
+      p="none"
+      m="lg"
+      onPress={() => {}}
+      {...rest}>
       <Div
         p="lg"
         flex={1}

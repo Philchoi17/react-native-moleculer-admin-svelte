@@ -22,7 +22,7 @@ export default function () {
       }
       Logger.debug('appPermissionListener =', appPermissionListener)
     } catch (error) {
-      Logger.err('mainUseEffectHandler: error =', error)
+      Logger.error('mainUseEffectHandler: error =', error)
     }
     return () => {
       // cleanup

@@ -10,3 +10,6 @@ export { default as Image } from './Image'
 export { default as Alert } from './Alert'
 export { default as Search } from './Search'
 export { default as ActionSheetOpener } from './ActionSheetOpener'
+
+// misc components
+export { default as Misc } from './Misc'

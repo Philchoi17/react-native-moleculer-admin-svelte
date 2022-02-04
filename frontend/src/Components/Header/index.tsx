@@ -22,6 +22,7 @@ export default function ({
   const { goBack } = useNavigation()
   return (
     <Header
+      bg="light"
       p="none"
       shadow="none"
       alignment="center"

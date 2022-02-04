@@ -226,3 +226,12 @@ export default function ({
 
 
 ```
+
+# react-native-sensors
+
+```
+https://react-native-sensors.github.io/docs/Installation.html
+
+
+
+```

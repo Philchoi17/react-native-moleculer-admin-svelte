@@ -29,6 +29,8 @@ target 'datingApp' do
   pod 'Permission-Siri', :path => "#{permissions_path}/Siri"
   pod 'Permission-SpeechRecognition', :path => "#{permissions_path}/SpeechRecognition"
   pod 'Permission-StoreKit', :path => "#{permissions_path}/StoreKit"
+  # for react-native-sensors
+  pod 'RNSensors', :path => '../node_modules/react-native-sensors'
 
   use_react_native!(
     :path => config[:reactNativePath],

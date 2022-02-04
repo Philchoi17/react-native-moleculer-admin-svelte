@@ -2698,6 +2698,14 @@ moleculer-db-adapter-mongo@^0.4.13:
     fakerator "^0.3.4"
     mongodb "^3.6.7"
 
+moleculer-db-adapter-mongoose@^0.8.12:
+  version "0.8.12"
+  resolved "https://registry.yarnpkg.com/moleculer-db-adapter-mongoose/-/moleculer-db-adapter-mongoose-0.8.12.tgz#5d2ae53978164e1ccb0c21b6e63b1b02f41ecbe1"
+  integrity sha512-bWxpkHH7YFLoqBYD12Nl7hd/fmF+gVbC9Xc+dtW8QF68hm+iul6yTTcJVVWm7OZ4zRykBuuj6sssqPzsie+MfQ==
+  dependencies:
+    bluebird "^3.7.2"
+    lodash "^4.17.21"
+
 moleculer-db@^0.8.15:
   version "0.8.17"
   resolved "https://registry.yarnpkg.com/moleculer-db/-/moleculer-db-0.8.17.tgz#336f7c1f9e5bfa0c7b1f93ba960adbe7c8e1e51d"
@@ -2913,6 +2921,11 @@ node-releases@^2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/node-releases/-/node-releases-2.0.1.tgz#3d1d395f204f1f2f29a54358b9fb678765ad2fc5"
   integrity sha512-CqyzN6z7Q6aMeF/ktcMVTzhAHCEpf8SOarwpzpf8pNBY2k5/oM34UHldUwp8VKI7uxct2HxSRdJjBaZeESzcxA==
+
+nodemailer@^6.7.2:
+  version "6.7.2"
+  resolved "https://registry.yarnpkg.com/nodemailer/-/nodemailer-6.7.2.tgz#44b2ad5f7ed71b7067f7a21c4fedabaec62b85e0"
+  integrity sha512-Dz7zVwlef4k5R71fdmxwR8Q39fiboGbu3xgswkzGwczUfjp873rVxt1O46+Fh0j1ORnAC6L9+heI8uUpO6DT7Q==
 
 normalize-path@^3.0.0:
   version "3.0.0"

@@ -2,7 +2,7 @@
 
 const DbMixin = require('../mixins/db.mixin')
 const { MoleculerClientError } = require('moleculer').Errors
-// const userSchema = require('./models/users.model')
+const feedSchema = require('./models/feed.model')
 const jwt = require('jsonwebtoken')
 
 /**

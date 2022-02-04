@@ -2,7 +2,7 @@
 
 const DbMixin = require('../mixins/db.mixin')
 const { MoleculerClientError } = require('moleculer').Errors
-const userSchema = require('./models/users.model')
+const usersModel = require('./models/users.model')
 const jwt = require('jsonwebtoken')
 
 /**
@@ -21,12 +21,12 @@ module.exports = {
 	 */
 	settings: {
 		idField: '_id',
-		fields: userSchema,
+		// fields: userSchema,
 	},
 	/**
 	 * Model
 	 */
-	// model: UserModel,
+	model: usersModel,
 
 	/**
 	 * Dependencies

@@ -20,6 +20,15 @@ export type feedType = {
   title: string
 }
 
+export type userPayloadType = {
+  age: number
+  email: string
+  gender: string
+  name: string
+  password: string
+  confirmPassword: string
+}
+
 // "_id": 1,
 // "date": "test",
 // "description": "test",

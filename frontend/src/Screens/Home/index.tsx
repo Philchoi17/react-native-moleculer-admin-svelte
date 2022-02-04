@@ -4,7 +4,14 @@ import { Div } from 'react-native-magnus'
 
 import { useAppSelector, useAppDispatch } from '@/Hooks'
 import MainContainer from '@/Containers/MainContainer'
-import { Text, Button, Icon, Search, ActionSheetOpener } from '@/Components'
+import {
+  Text,
+  Button,
+  Icon,
+  Search,
+  ActionSheetOpener,
+  Loading,
+} from '@/Components'
 import { FeedTile } from '@/Components/Tiles'
 import { logoutUser } from '@/Store/Global'
 import Config from '@/Config'
@@ -63,7 +70,7 @@ export default function () {
         </Div>
 
         <Div flex={1} p="md">
-          {feed.currentData &&
+          {feed?.currentData ? (
             feed.currentData.map(
               (
                 { _id, date, description, image, link, title }: feedType,
@@ -78,7 +85,12 @@ export default function () {
                   />
                 )
               },
-            )}
+            )
+          ) : (
+            <Div>
+              <Loading />
+            </Div>
+          )}
         </Div>
       </ScrollView>
     </MainContainer>

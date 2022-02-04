@@ -29,7 +29,7 @@ export default function () {
       setInitializing(true)
       checkIfUser()
     } catch (error) {
-      Logger.err('mainNavigatorUseEffectHandler: error =', error)
+      Logger.error('mainNavigatorUseEffectHandler: error =', error)
       return
     } finally {
       // TODO: temp until better solution is found

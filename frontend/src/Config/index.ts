@@ -24,7 +24,7 @@ class Config {
     try {
       return await Storage.removeAll()
     } catch (error) {
-      Logger.err('Config: reset: error =', error)
+      Logger.error('Config: reset: error =', error)
       return false
     }
   }

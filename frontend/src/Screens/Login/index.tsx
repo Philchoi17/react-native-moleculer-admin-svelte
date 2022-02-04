@@ -36,7 +36,7 @@ export default function () {
       dispatch(setUser(attempt))
       Config.setUser(attempt)
     } catch (error) {
-      Logger.err('login: error =', error)
+      Logger.error('login: error =', error)
       return false
     }
   }

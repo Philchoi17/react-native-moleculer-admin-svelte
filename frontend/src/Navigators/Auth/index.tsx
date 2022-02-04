@@ -3,6 +3,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack'
 
 import { AuthRoutes } from '@/Screens/SCREENS'
 import { InitialScreen, LoginScreen, SignupScreen } from '@/Screens'
+import Practice from '@/Screens/Practice'
 
 const { Navigator, Screen, Group } = createNativeStackNavigator()
 

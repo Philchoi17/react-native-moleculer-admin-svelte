@@ -28,10 +28,12 @@
     "moleculer": "^0.14.16",
     "moleculer-db": "^0.8.15",
     "moleculer-db-adapter-mongo": "^0.4.13",
+    "moleculer-db-adapter-mongoose": "^0.8.12",
     "moleculer-io": "^2.0.0",
     "moleculer-web": "^0.10.2",
     "mongoose": "^6.1.8",
-    "nats": "^2.2.0"
+    "nats": "^2.2.0",
+    "nodemailer": "^6.7.2"
   },
   "engines": {
     "node": ">= 12.x.x"

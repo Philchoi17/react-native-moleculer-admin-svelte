@@ -7,9 +7,9 @@ import {
 } from 'react-native-magnus'
 
 import MainContainer from '@/Containers/MainContainer'
-import { Text } from '@/Components'
+import { Text, Misc } from '@/Components'
 
-export default function () {
+export default function (): JSX.Element {
   return (
     <MainContainer
       headerProps={{
@@ -19,14 +19,14 @@ export default function () {
         },
       }}>
       <Div p="sm">
-        {/* <FlatList
-        style={{ height }}
-        ListEmptyComponent={<GDMisc.EmptyList emptyText={'No Chats...'} />}
-        ItemSeparatorComponent={GDMisc.Seperator}
-        data={chatrooms}
-        renderItem={RenderItem}
-        keyExtractor={({ id }) => id}
-        /> */}
+        <FlatList
+          style={{ height }}
+          ListEmptyComponent={<Misc.EmptyList emptyText={'No Chats...'} />}
+          ItemSeparatorComponent={Misc.Seperator}
+          data={[]}
+          renderItem={({ item }) => <Text>{item}</Text>}
+          keyExtractor={({ id }) => id}
+        />
       </Div>
     </MainContainer>
   )

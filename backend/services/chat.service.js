@@ -11,10 +11,9 @@ const jwt = require('jsonwebtoken')
  */
 
 module.exports = {
-	name: 'io',
+	name: 'chat',
 	mixins: [SocketIOService],
 	settings: {
-		// port: 3000,
 		io: {
 			namespaces: {
 				'/': {
