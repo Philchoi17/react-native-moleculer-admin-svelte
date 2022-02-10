@@ -2,7 +2,7 @@
 
 const DbMixin = require('../mixins/db.mixin')
 const { MoleculerClientError } = require('moleculer').Errors
-const feedSchema = require('./models/feed.model')
+const FeedModel = require('./models/feed.model')
 const jwt = require('jsonwebtoken')
 
 /**
@@ -26,7 +26,7 @@ module.exports = {
 	/**
 	 * Model
 	 */
-	// model: UserModel,
+	model: FeedModel,
 
 	/**
 	 * Dependencies

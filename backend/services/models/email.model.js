@@ -9,4 +9,6 @@ const emailSchema = new mongoose.Schema({
 	updatedAt: Date,
 })
 
-module.exports = emailSchema
+const EmailModel = mongoose.model('email', emailSchema)
+
+module.exports = EmailModel

@@ -18,4 +18,6 @@ const feedSchema = new mongoose.Schema({
 	updatedAt: Date,
 })
 
-module.exports = feedSchema
+const FeedModel = mongoose.model('feed', feedSchema)
+
+module.exports = FeedModel

@@ -14,7 +14,7 @@ module.exports = {
 	/**
 	 * mixins
 	 */
-	mixins: [DbMixin('quiz')],
+	// mixins: [DbMixin('quiz')],
 
 	/**
 	 * Settings

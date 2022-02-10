@@ -5,6 +5,7 @@ const { MoleculerClientError } = require('moleculer').Errors
 const emailSchema = require('./models/email.model')
 // const { SMTPClient } = require('emailjs')
 const nodemailer = require('nodemailer')
+const EmailModel = require('./models/email.model')
 
 // const client = new SMTPClient({
 // 	user: process.env.EMAIL,
@@ -40,7 +41,7 @@ module.exports = {
 	 */
 	settings: {
 		idField: '_id',
-		fields: emailSchema,
+		// fields: emailSchema,
 	},
 	// deletes message after 300 seconds
 	async afterConnected() {
@@ -57,7 +58,7 @@ module.exports = {
 	/**
 	 * Model
 	 */
-	// model: UserModel,
+	model: EmailModel,
 
 	/**
 	 * Dependencies

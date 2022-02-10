@@ -10,4 +10,6 @@ const questionSchema = new mongoose.Schema({
 	updatedAt: Date,
 })
 
-module.exports = questionSchema
+const QuestionModel = mongoose.model('question', questionSchema)
+
+module.exports = QuestionModel

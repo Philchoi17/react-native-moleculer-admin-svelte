@@ -2,8 +2,10 @@
 
 const DbMixin = require('../mixins/db.mixin')
 const { MoleculerClientError } = require('moleculer').Errors
+// const MongooseAdapter = require('moleculer-db-adapter-mongoose')
 const usersModel = require('./models/users.model')
 const jwt = require('jsonwebtoken')
+// const mongoose = require('mongoose')
 
 /**
  * @typedef {import('moleculer').Context} Context Moleculer's Context
